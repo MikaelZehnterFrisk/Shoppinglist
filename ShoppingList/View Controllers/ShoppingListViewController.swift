@@ -9,9 +9,10 @@ import UIKit
 
 class ShoppingListViewController: UIViewController {
 
+
     let listContainerView = UIView(frame: .zero)
+    let scrollView = UIScrollView()
     let listStackView = UIStackView(frame: .zero)
-    let itemStackView = UIStackView(frame: .zero)
     var viewModel: ListViewModel
 
     init(viewModel: ListViewModel) {
@@ -26,6 +27,8 @@ class ShoppingListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(listContainerView)
+
+        viewModel.delegate = self
 
         listContainerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -50,50 +53,39 @@ class ShoppingListViewController: UIViewController {
     }
 
     private func setupStackView() {
-        listContainerView.translatesAutoresizingMaskIntoConstraints = false
-        listContainerView.addSubview(listStackView)
-
         listStackView.translatesAutoresizingMaskIntoConstraints = false
         listStackView.axis = .vertical
         listStackView.distribution = .equalSpacing
         listStackView.alignment = .leading
 
-        NSLayoutConstraint.activate([
-            listStackView.topAnchor.constraint(equalTo: listContainerView.topAnchor),
-            listStackView.leftAnchor.constraint(equalTo: listContainerView.leftAnchor),
-            listStackView.rightAnchor.constraint(equalTo: listContainerView.rightAnchor)
-        ])
-
+        setupScrollView()
         addItemsToCard()
         addNewItemButton()
     }
 
-    private func addNewItemButton() {
-        var configuration = UIButton.Configuration.bordered()
-        configuration.image = UIImage(systemName: "plus")
-        configuration.title = "Add Item"
+    func setupScrollView() {
+        listContainerView.addSubview(scrollView)
+        scrollView.addSubview(listStackView)
 
-        let newItemButton = UIButton(configuration: configuration, primaryAction: nil)
-        listContainerView.addSubview(newItemButton)
-
-        newItemButton.addTarget(self, action: #selector(didTapAddNewItem), for: .touchUpInside)
-        newItemButton.translatesAutoresizingMaskIntoConstraints = false
-        let containerWidth = listContainerView.layer.bounds.width
-        let halfButtonWidth = containerWidth / 12
-        let leftButtonAnchor = (containerWidth / 2) - halfButtonWidth
-        let rightButtonAnchor = (containerWidth / 2) + halfButtonWidth
-
-        print(containerWidth)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            newItemButton.bottomAnchor.constraint(equalTo: listContainerView.bottomAnchor),
-            newItemButton.leftAnchor.constraint(equalTo: listContainerView.leftAnchor, constant: leftButtonAnchor),
-            newItemButton.rightAnchor.constraint(equalTo: listContainerView.rightAnchor, constant: rightButtonAnchor)
+            scrollView.topAnchor.constraint(equalTo: listContainerView.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: listContainerView.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: listContainerView.rightAnchor),
+            listStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            listStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            listStackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            listStackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor)
         ])
 
+
+        NSLayoutConstraint.activate([
+        ])
     }
 
     private func addItemsToCard() {
         for item in viewModel.items {
+            let itemStackView = UIStackView(frame: .zero)
             itemStackView.axis = .horizontal
             itemStackView.alignment = .leading
             itemStackView.distribution = .equalCentering
@@ -116,16 +108,52 @@ class ShoppingListViewController: UIViewController {
         }
     }
 
-    @objc
+    private func addNewItemButton() {
+        var configuration = UIButton.Configuration.bordered()
+        configuration.image = UIImage(systemName: "plus")
+        configuration.title = "Add Item"
+
+        let newItemButton = UIButton(configuration: configuration, primaryAction: nil)
+        listContainerView.addSubview(newItemButton)
+
+        newItemButton.addTarget(self, action: #selector(didTapAddNewItem), for: .touchUpInside)
+        newItemButton.translatesAutoresizingMaskIntoConstraints = false
+        let containerWidth = listContainerView.layer.bounds.width
+        let halfButtonWidth = containerWidth / 12
+        let leftButtonAnchor = (containerWidth / 2) - halfButtonWidth
+        let rightButtonAnchor = (containerWidth / 2) + halfButtonWidth
+
+        print(containerWidth)
+        NSLayoutConstraint.activate([
+            scrollView.bottomAnchor.constraint(equalTo: newItemButton.topAnchor),
+            newItemButton.bottomAnchor.constraint(equalTo: listContainerView.bottomAnchor),
+            newItemButton.leftAnchor.constraint(equalTo: listContainerView.leftAnchor, constant: leftButtonAnchor),
+            newItemButton.rightAnchor.constraint(equalTo: listContainerView.rightAnchor, constant: rightButtonAnchor)
+        ])
+    }
+
+@objc
     private func didTapDoneButton(sender: UIButton) {
         let index = sender.tag
-        viewModel.items[index].done = !viewModel.items[index].done
-        print(viewModel.items)
+        viewModel.toggleDone(for: viewModel.items[index])
     }
 
     @objc
     private func didTapAddNewItem() {
-        viewModel.items.append(Item(name: "New Item", done: false))
-        print(viewModel.items)
+        let addItemsNavigationController = UINavigationController(rootViewController: PickItemViewController())
+
+        present(addItemsNavigationController, animated: true)
+        //viewModel.addItem(Item(name: "New Item", done: false))
+    }
+}
+
+extension ShoppingListViewController: ListViewModelDelegate {
+    func viewModelDidUpdateList(_ viewModel: ListViewModel) {
+        for view in listStackView.arrangedSubviews {
+            listStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+
+        addItemsToCard()
     }
 }

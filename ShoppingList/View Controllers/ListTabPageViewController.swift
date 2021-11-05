@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class ListTabViewController: UIPageViewController {
+class ListTabPageViewController: UIPageViewController {
 
-    var listTabViewModel = ListTabViewModel()
+    let listTabViewModel: ListTabViewModel
     var listViewControllers: [UIViewController] = []
 
     override func viewDidLoad() {
@@ -18,19 +18,18 @@ class ListTabViewController: UIPageViewController {
 
         dataSource = self
         setupNavigation()
-        listViewControllers.append(ShoppingListViewController(viewModel: ListViewModel()))
+        listViewControllers.append(ShoppingListViewController(viewModel: listTabViewModel.createListViewModel()))
 
         setViewControllers(listViewControllers, direction: .forward, animated: false)
-
-        listViewControllers.append(ShoppingListViewController(viewModel: ListViewModel()))
     }
 
     func setupNavigation() {
         navigationItem.title = "Lists"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tappedNewList))
     }
 
-    init () {
+    init (viewModel: ListTabViewModel) {
+        listTabViewModel = viewModel
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
         setupTabBarItem()
     }
@@ -46,12 +45,12 @@ class ListTabViewController: UIPageViewController {
     }
 
     @objc
-    func addTapped() {
-        listViewControllers.append(ShoppingListViewController(viewModel: ListViewModel()))
+    func tappedNewList() {
+        listViewControllers.append(ShoppingListViewController(viewModel: listTabViewModel.createListViewModel()))
     }
 }
 
-extension ListTabViewController: UIPageViewControllerDataSource {
+extension ListTabPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let firstIndex = listViewControllers.firstIndex(of: viewController) else {
             return nil
@@ -76,5 +75,12 @@ extension ListTabViewController: UIPageViewControllerDataSource {
         else {
             return listViewControllers[firstIndex + 1]
         }
+    }
+}
+
+extension ListTabPageViewController: UIPageViewControllerDelegate {
+
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return listViewControllers.count
     }
 }

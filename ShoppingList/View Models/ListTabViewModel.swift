@@ -9,5 +9,16 @@ import Foundation
 
 class ListTabViewModel {
 
-    var lists: [ListViewModel] = [ListViewModel()]
+    private let itemsManager: ItemsManager
+
+    init(_ itemsManager: ItemsManager)
+    {
+        self.itemsManager = itemsManager
+    }
+
+    func createListViewModel() -> ListViewModel {
+        let listViewModel = ListViewModel(itemsManager)
+
+        return listViewModel
+    }
 }

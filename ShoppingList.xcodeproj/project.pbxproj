@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		734E16FF2735639800C47AB9 /* PickItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734E16FE2735639800C47AB9 /* PickItemViewController.swift */; };
+		734E1702273569C200C47AB9 /* ItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734E1701273569C200C47AB9 /* ItemsManager.swift */; };
 		738FB5C72730103000E03365 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB5C62730103000E03365 /* TabBarViewController.swift */; };
 		738FB5C92730105100E03365 /* ItemTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB5C82730105100E03365 /* ItemTabViewController.swift */; };
-		738FB5CB2730105E00E03365 /* ListTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB5CA2730105E00E03365 /* ListTabViewController.swift */; };
+		738FB5CB2730105E00E03365 /* ListTabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB5CA2730105E00E03365 /* ListTabPageViewController.swift */; };
 		73A44B942726871C0050B341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A44B932726871C0050B341 /* AppDelegate.swift */; };
 		73A44B962726871C0050B341 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A44B952726871C0050B341 /* SceneDelegate.swift */; };
 		73A44B982726871C0050B341 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A44B972726871C0050B341 /* ViewController.swift */; };
@@ -22,9 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		734E16FE2735639800C47AB9 /* PickItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickItemViewController.swift; sourceTree = "<group>"; };
+		734E1701273569C200C47AB9 /* ItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsManager.swift; sourceTree = "<group>"; };
 		738FB5C62730103000E03365 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		738FB5C82730105100E03365 /* ItemTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTabViewController.swift; sourceTree = "<group>"; };
-		738FB5CA2730105E00E03365 /* ListTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabViewController.swift; sourceTree = "<group>"; };
+		738FB5CA2730105E00E03365 /* ListTabPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabPageViewController.swift; sourceTree = "<group>"; };
 		73A44B902726871C0050B341 /* ShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73A44B932726871C0050B341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73A44B952726871C0050B341 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		734E17002735699800C47AB9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				734E1701273569C200C47AB9 /* ItemsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		73A44B872726871C0050B341 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +80,7 @@
 		73A44B922726871C0050B341 /* ShoppingList */ = {
 			isa = PBXGroup;
 			children = (
+				734E17002735699800C47AB9 /* Managers */,
 				73A44BA92726873F0050B341 /* View Models */,
 				73A44BA8272687380050B341 /* View Controllers */,
 				73A44BA7272687300050B341 /* Views */,
@@ -94,8 +107,9 @@
 			children = (
 				738FB5C62730103000E03365 /* TabBarViewController.swift */,
 				738FB5C82730105100E03365 /* ItemTabViewController.swift */,
-				738FB5CA2730105E00E03365 /* ListTabViewController.swift */,
+				738FB5CA2730105E00E03365 /* ListTabPageViewController.swift */,
 				73C8B2AD273020500056F1F2 /* ShoppingListViewController.swift */,
+				734E16FE2735639800C47AB9 /* PickItemViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -184,10 +198,12 @@
 				738FB5C72730103000E03365 /* TabBarViewController.swift in Sources */,
 				738FB5C92730105100E03365 /* ItemTabViewController.swift in Sources */,
 				73A44B982726871C0050B341 /* ViewController.swift in Sources */,
+				734E1702273569C200C47AB9 /* ItemsManager.swift in Sources */,
 				73A44B942726871C0050B341 /* AppDelegate.swift in Sources */,
 				73C8B2B227302DBD0056F1F2 /* ListViewModel.swift in Sources */,
 				73A44B962726871C0050B341 /* SceneDelegate.swift in Sources */,
-				738FB5CB2730105E00E03365 /* ListTabViewController.swift in Sources */,
+				738FB5CB2730105E00E03365 /* ListTabPageViewController.swift in Sources */,
+				734E16FF2735639800C47AB9 /* PickItemViewController.swift in Sources */,
 				73C8B2AE273020500056F1F2 /* ShoppingListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
