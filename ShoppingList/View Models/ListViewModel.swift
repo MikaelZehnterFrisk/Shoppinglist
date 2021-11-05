@@ -12,7 +12,7 @@ class ListViewModel {
     var items: [Item] = [Item(name: "Kaviar", done: false), Item(name: "Formfranska", done: false)]
 }
 
-struct Item {
+struct Item: Equatable {
     var name: String
     var done: Bool
 }
