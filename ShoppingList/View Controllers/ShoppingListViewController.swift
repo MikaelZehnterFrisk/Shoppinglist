@@ -140,7 +140,7 @@ class ShoppingListViewController: UIViewController {
 
     @objc
     private func didTapAddNewItem() {
-        let addItemsNavigationController = UINavigationController(rootViewController: PickItemViewController())
+        let addItemsNavigationController = UINavigationController(rootViewController: PickItemViewController(viewModel: viewModel.createPickItemViewModel()))
 
         present(addItemsNavigationController, animated: true)
         //viewModel.addItem(Item(name: "New Item", done: false))

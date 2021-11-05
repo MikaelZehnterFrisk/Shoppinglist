@@ -30,6 +30,11 @@ class ListViewModel {
         items[index].done.toggle()
         delegate?.viewModelDidUpdateList(self)
     }
+
+    func createPickItemViewModel() -> PickItemViewModel {
+        let pickItemViewModel = PickItemViewModel(itemsManager)
+        return pickItemViewModel
+    }
 }
 
 struct Item: Equatable {

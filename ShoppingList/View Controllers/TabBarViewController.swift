@@ -15,6 +15,9 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        try? itemsManager.addItem("Dill")
+        try? itemsManager.addItem("Ägg")
+
         let listTabViewModel = ListTabViewModel(itemsManager)
 
         let listNavigationController = UINavigationController(rootViewController: ListTabPageViewController(viewModel: listTabViewModel))

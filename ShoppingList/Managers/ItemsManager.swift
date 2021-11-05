@@ -8,13 +8,13 @@
 import Foundation
 
 final class ItemsManager {
-    private(set) var items: Set<String> = []
+    private(set) var items: [String] = []
 
     func addItem(_ item: String) throws {
         if items.contains(item) {
             throw Error.itemExists
         }
-        items.insert(item)
+        items.append(item)
     }
 
     enum Error: Swift.Error {
