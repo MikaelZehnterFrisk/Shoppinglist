@@ -11,10 +11,12 @@ final class PickItemViewController: UIViewController{
 
     var tableView = UITableView()
     let viewModel: PickItemViewModel
+    weak var delegate: ListViewModelDelegate?
 
-    init(viewModel: PickItemViewModel)
+    init(viewModel: PickItemViewModel, delegate: ListViewModelDelegate)
     {
         self.viewModel = viewModel
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -39,7 +41,8 @@ final class PickItemViewController: UIViewController{
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         tableView.dataSource = self
-        tableView.allowsMultipleSelection = true
+        tableView.allowsSelection = true
+        tableView.delegate = self
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -48,8 +51,6 @@ final class PickItemViewController: UIViewController{
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
-
-        print(viewModel.itemManager.items.count)
     }
 
     @objc
@@ -59,9 +60,10 @@ final class PickItemViewController: UIViewController{
 
     @objc
     private func didTapDoneButton() {
-
+        let items = viewModel.selectedItems.map({ Item(name: $0, done: false) })
+        delegate?.didAddItems(items)
+        dismiss(animated: true)
     }
-
 }
 
 extension PickItemViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,9 +72,24 @@ extension PickItemViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell",
-                                                 for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         cell.textLabel?.text = viewModel.itemManager.items[indexPath.row]
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+
+        let itemName = viewModel.itemManager.items[indexPath.row]
+        let itemSelected = viewModel.selectedItems.contains(itemName)
+
+        if itemSelected {
+            viewModel.selectedItems.remove(itemName)
+            cell.accessoryType = .none
+        } else {
+            viewModel.selectedItems.insert(itemName)
+            cell.accessoryType = .checkmark
+        }
     }
 }

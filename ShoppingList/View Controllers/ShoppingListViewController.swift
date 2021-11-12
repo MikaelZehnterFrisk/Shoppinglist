@@ -9,7 +9,6 @@ import UIKit
 
 class ShoppingListViewController: UIViewController {
 
-
     let listContainerView = UIView(frame: .zero)
     let scrollView = UIScrollView()
     let listStackView = UIStackView(frame: .zero)
@@ -140,10 +139,10 @@ class ShoppingListViewController: UIViewController {
 
     @objc
     private func didTapAddNewItem() {
-        let addItemsNavigationController = UINavigationController(rootViewController: PickItemViewController(viewModel: viewModel.createPickItemViewModel()))
+
+        let addItemsNavigationController = UINavigationController(rootViewController: PickItemViewController(viewModel: viewModel.createPickItemViewModel(), delegate:self))
 
         present(addItemsNavigationController, animated: true)
-        //viewModel.addItem(Item(name: "New Item", done: false))
     }
 }
 
@@ -155,5 +154,11 @@ extension ShoppingListViewController: ListViewModelDelegate {
         }
 
         addItemsToCard()
+    }
+
+    func didAddItems(_ items: [Item]) {
+        for item in items {
+            viewModel.addItem(item)
+        }
     }
 }

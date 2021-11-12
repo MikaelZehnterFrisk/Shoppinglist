@@ -9,6 +9,7 @@ import Foundation
 
 final class PickItemViewModel {
     let itemManager: ItemsManager
+    var selectedItems: Set<String> = []
 
     init(_ itemManager: ItemsManager)
     {

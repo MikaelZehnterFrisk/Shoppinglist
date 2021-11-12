@@ -43,8 +43,8 @@ struct Item: Equatable {
     var done: Bool
 }
 
-
 protocol ListViewModelDelegate: AnyObject {
 
     func viewModelDidUpdateList(_ viewModel: ListViewModel)
+    func didAddItems(_ items: [Item])
 }
