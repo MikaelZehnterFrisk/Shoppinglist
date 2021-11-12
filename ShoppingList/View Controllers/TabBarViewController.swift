@@ -19,9 +19,10 @@ class TabBarViewController: UITabBarController {
         try? itemsManager.addItem("Ägg")
 
         let listTabViewModel = ListTabViewModel(itemsManager)
+        let itemTabViewModel = ItemTabViewModel(itemsManager)
 
         let listNavigationController = UINavigationController(rootViewController: ListTabPageViewController(viewModel: listTabViewModel))
-        let itemNavigationController = UINavigationController(rootViewController: ItemTabViewController())
+        let itemNavigationController = UINavigationController(rootViewController: ItemTabViewController(viewModel: itemTabViewModel))
 
         let appearance = UINavigationBarAppearance()
         appearance.configureWithDefaultBackground()

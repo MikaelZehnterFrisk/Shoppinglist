@@ -37,7 +37,7 @@ class ListViewModel {
     }
 }
 
-struct Item: Equatable {
+struct Item: Equatable, Hashable {
     let id = UUID()
     var name: String
     var done: Bool
