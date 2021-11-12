@@ -92,7 +92,7 @@ class ShoppingListViewController: UIViewController {
             let label = UILabel()
             label.text = item.name
 
-            var configuration = UIButton.Configuration.bordered()
+            var configuration = UIButton.Configuration.borderless()
             let icon = item.done ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
             configuration.image = icon
 
