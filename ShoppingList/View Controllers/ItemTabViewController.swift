@@ -102,6 +102,19 @@ extension ItemTabViewController: UICollectionViewDataSource {
         content.text = viewModel.itemManager.items[indexPath.row]
         cell.contentConfiguration = content
 
+        let imageView = UIImageView(frame: .zero)
+        let image = UIImage(systemName: "chevron.right")
+        imageView.image = image!
+        cell.contentView.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            imageView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 16),
+            imageView.heightAnchor.constraint(equalToConstant: 16),
+            imageView.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -16)
+        ])
+
         return cell
     }
 }
