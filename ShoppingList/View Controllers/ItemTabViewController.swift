@@ -41,17 +41,12 @@ class ItemTabViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = "Items"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didPressAddButton))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(didPressEditButton))
     }
 
     @objc
     private func didPressAddButton() {
-        print("Added new item")
-    }
-
-    @objc
-    private func didPressEditButton() {
-        print("Pressed edit button")
+        let addItemNavigationController = UINavigationController(rootViewController: AddItemViewController())
+        present(addItemNavigationController, animated: true)
     }
 
     @objc

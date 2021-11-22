@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73076FCE274BA27D005EDBBF /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73076FCD274BA27D005EDBBF /* AddItemViewController.swift */; };
 		734E16FF2735639800C47AB9 /* PickItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734E16FE2735639800C47AB9 /* PickItemViewController.swift */; };
 		734E1702273569C200C47AB9 /* ItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734E1701273569C200C47AB9 /* ItemsManager.swift */; };
 		734E170427357E5900C47AB9 /* PickItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734E170327357E5900C47AB9 /* PickItemViewModel.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73076FCD274BA27D005EDBBF /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		734E16FE2735639800C47AB9 /* PickItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickItemViewController.swift; sourceTree = "<group>"; };
 		734E1701273569C200C47AB9 /* ItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsManager.swift; sourceTree = "<group>"; };
 		734E170327357E5900C47AB9 /* PickItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickItemViewModel.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				73C8B2AD273020500056F1F2 /* ShoppingListViewController.swift */,
 				734E16FE2735639800C47AB9 /* PickItemViewController.swift */,
 				7389684C273EA29300C9DBD3 /* ItemDetailsViewController.swift */,
+				73076FCD274BA27D005EDBBF /* AddItemViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				738FB5C72730103000E03365 /* TabBarViewController.swift in Sources */,
 				738FB5C92730105100E03365 /* ItemTabViewController.swift in Sources */,
 				73A44B982726871C0050B341 /* ViewController.swift in Sources */,
+				73076FCE274BA27D005EDBBF /* AddItemViewController.swift in Sources */,
 				734E1702273569C200C47AB9 /* ItemsManager.swift in Sources */,
 				73A44B942726871C0050B341 /* AppDelegate.swift in Sources */,
 				73C8B2B227302DBD0056F1F2 /* ListViewModel.swift in Sources */,
