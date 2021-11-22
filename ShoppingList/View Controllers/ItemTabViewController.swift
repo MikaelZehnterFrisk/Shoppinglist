@@ -56,8 +56,7 @@ class ItemTabViewController: UIViewController {
 
     @objc
     private func didPressItem(_ itemName: String) {
-        //let itemDetailsNavigationController = UINavigationController(rootViewController: AddNewItemViewController(itemName))
-        navigationController?.pushViewController(AddNewItemViewController(itemName), animated: true)
+        navigationController?.pushViewController(ItemDetailsViewController(itemName), animated: true)
     }
 
     private func setupCollectionView() {
@@ -85,6 +84,7 @@ class ItemTabViewController: UIViewController {
 
 extension ItemTabViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
         didPressItem(viewModel.itemManager.items[indexPath.row])
     }
 

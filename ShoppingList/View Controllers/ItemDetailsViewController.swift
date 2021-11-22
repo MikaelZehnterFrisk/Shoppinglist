@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AddNewItemViewController: UIViewController {
+final class ItemDetailsViewController: UIViewController {
 
     let stackView = UIStackView()
     let itemName: String
@@ -48,7 +48,7 @@ final class AddNewItemViewController: UIViewController {
         itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70.0),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
             descriptionLabel.topAnchor.constraint(equalTo: stackView.topAnchor),

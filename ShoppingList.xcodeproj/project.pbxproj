@@ -11,7 +11,7 @@
 		734E1702273569C200C47AB9 /* ItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734E1701273569C200C47AB9 /* ItemsManager.swift */; };
 		734E170427357E5900C47AB9 /* PickItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734E170327357E5900C47AB9 /* PickItemViewModel.swift */; };
 		7389684B273E747200C9DBD3 /* ItemTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389684A273E747200C9DBD3 /* ItemTabViewModel.swift */; };
-		7389684D273EA29300C9DBD3 /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389684C273EA29300C9DBD3 /* AddNewItemViewController.swift */; };
+		7389684D273EA29300C9DBD3 /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389684C273EA29300C9DBD3 /* ItemDetailsViewController.swift */; };
 		738FB5C72730103000E03365 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB5C62730103000E03365 /* TabBarViewController.swift */; };
 		738FB5C92730105100E03365 /* ItemTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB5C82730105100E03365 /* ItemTabViewController.swift */; };
 		738FB5CB2730105E00E03365 /* ListTabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB5CA2730105E00E03365 /* ListTabPageViewController.swift */; };
@@ -31,7 +31,7 @@
 		734E1701273569C200C47AB9 /* ItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsManager.swift; sourceTree = "<group>"; };
 		734E170327357E5900C47AB9 /* PickItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickItemViewModel.swift; sourceTree = "<group>"; };
 		7389684A273E747200C9DBD3 /* ItemTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTabViewModel.swift; sourceTree = "<group>"; };
-		7389684C273EA29300C9DBD3 /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
+		7389684C273EA29300C9DBD3 /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		738FB5C62730103000E03365 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		738FB5C82730105100E03365 /* ItemTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTabViewController.swift; sourceTree = "<group>"; };
 		738FB5CA2730105E00E03365 /* ListTabPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabPageViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 				738FB5CA2730105E00E03365 /* ListTabPageViewController.swift */,
 				73C8B2AD273020500056F1F2 /* ShoppingListViewController.swift */,
 				734E16FE2735639800C47AB9 /* PickItemViewController.swift */,
-				7389684C273EA29300C9DBD3 /* AddNewItemViewController.swift */,
+				7389684C273EA29300C9DBD3 /* ItemDetailsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 				734E1702273569C200C47AB9 /* ItemsManager.swift in Sources */,
 				73A44B942726871C0050B341 /* AppDelegate.swift in Sources */,
 				73C8B2B227302DBD0056F1F2 /* ListViewModel.swift in Sources */,
-				7389684D273EA29300C9DBD3 /* AddNewItemViewController.swift in Sources */,
+				7389684D273EA29300C9DBD3 /* ItemDetailsViewController.swift in Sources */,
 				73A44B962726871C0050B341 /* SceneDelegate.swift in Sources */,
 				734E170427357E5900C47AB9 /* PickItemViewModel.swift in Sources */,
 				738FB5CB2730105E00E03365 /* ListTabPageViewController.swift in Sources */,
