@@ -22,9 +22,10 @@
 		73A44B9B2726871C0050B341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73A44B992726871C0050B341 /* Main.storyboard */; };
 		73A44B9D272687210050B341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73A44B9C272687210050B341 /* Assets.xcassets */; };
 		73A44BA0272687210050B341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73A44B9E272687210050B341 /* LaunchScreen.storyboard */; };
+		73AA2005274D3DC0009EA9D7 /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2004274D3DC0009EA9D7 /* AddItemViewModel.swift */; };
 		73C8B2AE273020500056F1F2 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B2AD273020500056F1F2 /* ShoppingListViewController.swift */; };
 		73C8B2B027302D930056F1F2 /* ListTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B2AF27302D930056F1F2 /* ListTabViewModel.swift */; };
-		73C8B2B227302DBD0056F1F2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B2B127302DBD0056F1F2 /* ListViewModel.swift */; };
+		73C8B2B227302DBD0056F1F2 /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B2B127302DBD0056F1F2 /* ShoppingListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +46,10 @@
 		73A44B9C272687210050B341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73A44B9F272687210050B341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73A44BA1272687210050B341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73AA2004274D3DC0009EA9D7 /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
 		73C8B2AD273020500056F1F2 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		73C8B2AF27302D930056F1F2 /* ListTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabViewModel.swift; sourceTree = "<group>"; };
-		73C8B2B127302DBD0056F1F2 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		73C8B2B127302DBD0056F1F2 /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,9 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				73C8B2AF27302D930056F1F2 /* ListTabViewModel.swift */,
-				73C8B2B127302DBD0056F1F2 /* ListViewModel.swift */,
+				73C8B2B127302DBD0056F1F2 /* ShoppingListViewModel.swift */,
 				734E170327357E5900C47AB9 /* PickItemViewModel.swift */,
 				7389684A273E747200C9DBD3 /* ItemTabViewModel.swift */,
+				73AA2004274D3DC0009EA9D7 /* AddItemViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -211,10 +214,11 @@
 				738FB5C72730103000E03365 /* TabBarViewController.swift in Sources */,
 				738FB5C92730105100E03365 /* ItemTabViewController.swift in Sources */,
 				73A44B982726871C0050B341 /* ViewController.swift in Sources */,
+				73AA2005274D3DC0009EA9D7 /* AddItemViewModel.swift in Sources */,
 				73076FCE274BA27D005EDBBF /* AddItemViewController.swift in Sources */,
 				734E1702273569C200C47AB9 /* ItemsManager.swift in Sources */,
 				73A44B942726871C0050B341 /* AppDelegate.swift in Sources */,
-				73C8B2B227302DBD0056F1F2 /* ListViewModel.swift in Sources */,
+				73C8B2B227302DBD0056F1F2 /* ShoppingListViewModel.swift in Sources */,
 				7389684D273EA29300C9DBD3 /* ItemDetailsViewController.swift in Sources */,
 				73A44B962726871C0050B341 /* SceneDelegate.swift in Sources */,
 				734E170427357E5900C47AB9 /* PickItemViewModel.swift in Sources */,

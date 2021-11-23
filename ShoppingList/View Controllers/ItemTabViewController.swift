@@ -45,7 +45,7 @@ class ItemTabViewController: UIViewController {
 
     @objc
     private func didPressAddButton() {
-        let addItemNavigationController = UINavigationController(rootViewController: AddItemViewController())
+        let addItemNavigationController = UINavigationController(rootViewController: AddItemViewController(AddItemViewModel(itemManager: viewModel.itemManager, delegate: self)))
         present(addItemNavigationController, animated: true)
     }
 
@@ -58,7 +58,6 @@ class ItemTabViewController: UIViewController {
         view.addSubview(collectionView)
 
         var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        config.backgroundColor = .systemPurple
         config.showsSeparators = true
 
         collectionView.delegate = self
@@ -74,6 +73,12 @@ class ItemTabViewController: UIViewController {
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
 
+    }
+}
+
+extension ItemTabViewController: ItemTabViewModelDelegate {
+    func updatedItemList() {
+        collectionView.reloadData()
     }
 }
 

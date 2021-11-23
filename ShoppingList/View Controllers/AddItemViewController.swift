@@ -9,7 +9,17 @@ import UIKit
 
 class AddItemViewController: UIViewController {
 
-    private var newItemName: String = ""
+    private let viewModel: AddItemViewModel
+    let textField = UITextField(frame: .zero)
+
+    init(_ viewModel: AddItemViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +49,7 @@ class AddItemViewController: UIViewController {
         let label = UILabel()
         label.text = "Name of item"
 
-        let textField = UITextField(frame: .zero)
         textField.placeholder = "Item name"
-        textField.text = newItemName
         textField.borderStyle = .roundedRect
         textField.layer.cornerRadius = 8
 
@@ -87,7 +95,24 @@ class AddItemViewController: UIViewController {
 
     @objc
     private func didTapAddButton() {
-        dismiss(animated: true, completion: nil)
+        if let newItemName = textField.text, newItemName != "" {
+            do {
+                try viewModel.itemManager.addItem(newItemName)
+                viewModel.delegate?.updatedItemList()
+                dismiss(animated: true, completion: nil)
+            } catch {
+                presentAlert(title: "Error adding item", message: "The item already exists in the item list.")
+            }
+        }
+        else {
+            presentAlert(title: "Cannot add empty item", message: "The name of the item cannot be empty.")
+        }
     }
 
+    private func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alert, animated: true)
+
+    }
 }

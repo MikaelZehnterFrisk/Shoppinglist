@@ -14,3 +14,8 @@ final class ItemTabViewModel {
         self.itemManager = itemManager
     }
 }
+
+protocol ItemTabViewModelDelegate: AnyObject {
+
+    func updatedItemList()
+}

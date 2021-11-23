@@ -12,9 +12,9 @@ class ShoppingListViewController: UIViewController {
     let listContainerView = UIView(frame: .zero)
     let scrollView = UIScrollView()
     let listStackView = UIStackView(frame: .zero)
-    var viewModel: ListViewModel
+    var viewModel: ShoppingListViewModel
 
-    init(viewModel: ListViewModel) {
+    init(viewModel: ShoppingListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -147,7 +147,7 @@ class ShoppingListViewController: UIViewController {
 }
 
 extension ShoppingListViewController: ListViewModelDelegate {
-    func viewModelDidUpdateList(_ viewModel: ListViewModel) {
+    func viewModelDidUpdateList(_ viewModel: ShoppingListViewModel) {
         for view in listStackView.arrangedSubviews {
             listStackView.removeArrangedSubview(view)
             view.removeFromSuperview()

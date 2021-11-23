@@ -16,8 +16,8 @@ class ListTabViewModel {
         self.itemsManager = itemsManager
     }
 
-    func createListViewModel() -> ListViewModel {
-        let listViewModel = ListViewModel(itemsManager)
+    func createListViewModel() -> ShoppingListViewModel {
+        let listViewModel = ShoppingListViewModel(itemsManager)
 
         return listViewModel
     }

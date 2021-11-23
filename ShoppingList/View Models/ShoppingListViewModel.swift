@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ListViewModel {
+class ShoppingListViewModel {
 
     weak var delegate: ListViewModelDelegate?
     private(set) var items: [Item] = [Item(name: "Kaviar", done: false), Item(name: "Formfranska", done: false)]
@@ -45,6 +45,6 @@ struct Item: Equatable, Hashable {
 
 protocol ListViewModelDelegate: AnyObject {
 
-    func viewModelDidUpdateList(_ viewModel: ListViewModel)
+    func viewModelDidUpdateList(_ viewModel: ShoppingListViewModel)
     func didAddItems(_ items: [Item])
 }
