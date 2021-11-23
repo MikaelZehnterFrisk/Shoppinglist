@@ -65,6 +65,7 @@ class ShoppingListViewController: UIViewController {
     func setupScrollView() {
         listContainerView.addSubview(scrollView)
         scrollView.addSubview(listStackView)
+        scrollView.backgroundColor = .systemBackground
 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -86,7 +87,7 @@ class ShoppingListViewController: UIViewController {
         for item in viewModel.items {
             let itemStackView = UIStackView(frame: .zero)
             itemStackView.axis = .horizontal
-            itemStackView.alignment = .leading
+            itemStackView.alignment = .center
             itemStackView.distribution = .equalCentering
 
             let label = UILabel()
@@ -122,7 +123,6 @@ class ShoppingListViewController: UIViewController {
         let leftButtonAnchor = (containerWidth / 2) - halfButtonWidth
         let rightButtonAnchor = (containerWidth / 2) + halfButtonWidth
 
-        print(containerWidth)
         NSLayoutConstraint.activate([
             scrollView.bottomAnchor.constraint(equalTo: newItemButton.topAnchor),
             newItemButton.bottomAnchor.constraint(equalTo: listContainerView.bottomAnchor),

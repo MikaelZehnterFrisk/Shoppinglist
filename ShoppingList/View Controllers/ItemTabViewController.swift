@@ -58,6 +58,7 @@ class ItemTabViewController: UIViewController {
         view.addSubview(collectionView)
 
         var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        config.backgroundColor = .secondarySystemBackground
         config.showsSeparators = true
 
         collectionView.delegate = self

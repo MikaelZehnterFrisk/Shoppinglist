@@ -10,7 +10,7 @@ import Foundation
 class ShoppingListViewModel {
 
     weak var delegate: ListViewModelDelegate?
-    private(set) var items: [Item] = [Item(name: "Kaviar", done: false), Item(name: "Formfranska", done: false)]
+    private(set) var items: [Item] = []
     private let itemsManager: ItemsManager
 
     init(_ itemsManager: ItemsManager)
